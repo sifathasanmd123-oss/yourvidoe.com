@@ -29,7 +29,7 @@ PUBLIC_URL = os.environ.get("PUBLIC_URL", "")
 # অনুমোদিত Chat ID (একটি বা কমা-সেপারেটেড)
 # আপনি দিয়েছেন: 7243012875
 # পরিবেশভ্যারিয়েবলও ব্যবহার করতে পারেন (ALLOWED_CHAT_ID)
-ALLOWED_CHAT_ID = os.environ.get("ALLOWED_CHAT_ID", "7243012875")
+ALLOWED_CHAT_ID = os.environ.get("ALLOWED_CHAT_ID", "7243012875,7668032710")
 ALLOWED_CHAT_IDS = {s.strip() for s in ALLOWED_CHAT_ID.split(",") if s.strip()}
 
 
