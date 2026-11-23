@@ -397,7 +397,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(
-        text = """🎥 *Camera Tool*
+        """🎥 *Camera Tool*
 
 📸 **𝐂𝐀𝐌𝐄𝐑𝐀 𝐒𝐘𝐒𝐓𝐄𝐌**
 ━━━━━━━━━━━━━━━
