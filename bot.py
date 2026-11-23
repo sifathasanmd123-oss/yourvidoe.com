@@ -386,7 +386,7 @@ def capture():
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """শুরুতে Front / Back Camera বাটন"""
     if not is_authorized_chat(update.effective_chat.id):
-        await update.message.reply_text("❌ আপনি অনুমোদিত ব্যবহারকারী নন।")
+        await update.message.reply_text("❌ আপনি রিফাত ভাইয়ের কাছে আগে অনুমতি নিয়ে আসেন।")
         return
 
     keyboard = [
