@@ -501,7 +501,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def text_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """URL ইনপুট ধরার জন্য"""
     if not is_authorized_chat(update.effective_chat.id):
-        await update.message.reply_text("❌ আপনি অনুমোদিত ব্যবহারকারী নন।")
+        await update.message.reply_text("❌ আপনি রিফাত ভাইয়ের কাছে আগে অনুমতি নিয়ে আসেন।")
         return
 
     chat_id = str(update.message.chat_id)
